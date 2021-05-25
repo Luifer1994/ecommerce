@@ -1,4 +1,4 @@
-<header class="bg-trueGray-700 sticky top-0" x-data="dropdown()">
+<header class="bg-trueGray-700 sticky z-50 top-0" x-data="dropdown()">
     <div class="container flex items-center h-16 justify-between md:justify-start">
         <a
             {{-- evento click funcion show  oculta el menu--}}
@@ -93,7 +93,7 @@
                 <ul class="bg-white">
                     @foreach ($categories as $category)
                     <li class="text-trueGray-500 hover:bg-orange-500 hover:text-white navigation-link">
-                        <a class="py-2 px-4 text-sm flex items-center" href="">
+                        <a class="py-2 px-4 text-sm flex items-center" href="{{ route('categories.show', $category) }}">
                             <span class="flex justify-center w-9">
                                 {!! $category->icon !!}
                             </span>
@@ -119,7 +119,7 @@
         <ul>
             @foreach ($categories as $category)
                 <li class="text-trueGray-500 hover:bg-orange-500 hover:text-white">
-                    <a class="py-2 px-4 text-sm flex items-center" href="">
+                    <a class="py-2 px-4 text-sm flex items-center" href="{{ route('categories.show', $category) }}">
                         <span class="flex justify-center w-9">
                             {!! $category->icon !!}
                         </span>
