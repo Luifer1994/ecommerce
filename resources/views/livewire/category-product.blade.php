@@ -1,8 +1,10 @@
-<div wire:init="loadPost">
+<div wire:init="loadPosts">
    @if (count($products))
 
         <div class="glider-contain">
+
             <ul class="glider-{{ $category->id }}">
+
                 @foreach ($products as $product)
                     <li class="bg-white rounded-lg shadow {{ $loop->last ? '' : 'sm:mr-4' }}">
                         <article>
@@ -12,7 +14,7 @@
 
                             <div class="py-4 px-6">
                                 <h1 class="text-lg font-semibold">
-                                    <a href="">
+                                    <a href="{{ route('products.show', $product) }}">
                                         {{ Str::limit($product->name, 20) }}
                                     </a>
                                 </h1>

@@ -13,7 +13,7 @@ class CategoryProduct extends Component
         return view('livewire.category-product');
     }
 
-    public function loadPost()
+    public function loadPosts()
     {
         $this->products = $this->category->products()->where('status',2)->take(10)->get();
 
