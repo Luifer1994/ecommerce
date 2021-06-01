@@ -28,6 +28,7 @@
             wire:click="addItem"
             wire:loading.attr="disabled"
             wire:target="addItem"
+            x-bind:disabled="$wire.qty > $wire.quantity"
             color="orange">
                 Agregar al carrito de compra
             </x-button>

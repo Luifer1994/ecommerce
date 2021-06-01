@@ -30,7 +30,15 @@
 
                         <article class="flex-1">
                             <h1 class="font-bold">{{ $item->name }}</h1>
-                            <p>Can: {{ $item->qty }}</p>
+                            <div class="flex">
+                                <p>Can: {{ $item->qty }}</p>
+                                @isset($item->options['color'])
+                                <p class="mx-2"> - Colo: {{ __($item->options['color']) }}</p>
+                                @endisset
+                                @isset($item->options['size'])
+                                <p>{{ $item->options['size'] }}</p>
+                                @endisset
+                            </div>
                             <p>Precio: $ {{ $item->price }}</p>
                         </article>
                     </li>
@@ -48,7 +56,7 @@
                 <div class="py-2 px-3">
                     <p class="text-lg text-gray-700 mt-2 mb-3"><span class=" font-bold">Total: </span>$
                         {{ Cart::subtotal() }}</p>
-                    <x-button-enlace color="orange" class="w-full">
+                    <x-button-enlace href="{{ route('shopping-cart') }}" color="orange" class="w-full">
                         Ir al Carrito de compras
                     </x-button-enlace>
                 </div>
